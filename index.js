@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log(contador)
     }, 7000 );
 
-    // intervalo.iniciar()
+    // intervalo.iniciar() //
 
     $slideBtns.forEach((botoes, i) =>{
         botoes.addEventListener("click", () =>{
