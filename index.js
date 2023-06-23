@@ -4,43 +4,70 @@
 const $descTitle = document.getElementById("description-title")
 const descTitleText = [`Porsche 718 RS60 Spyder`, `Lightning McQueen`, `Lorem Ipsum1`, `Lorem Ipsum2`, `Lorem Ipsum3`]
 
-const text = [`Porsche developed the 718 RS 60 Spyder for the 1960 season. This car featured a decisive modification: whereas its predecessor - 
-the 718 RSK - had featured a cubic capacity of 1,498 cc, the Carrera en.`, 
+const text = 
+[`Porsche developed the 718 RS 60 Spyder for the 1960 season. This car featured a decisive modification: whereas its predecessor – the 718 RSK – had featured a cubic capacity of 1,498 cc, the Carrera engine in the new model boasted an increased capacity of 1,587 cc. This was implemented in response to a technical rule change by the FIA, which had raised the cubic capacity limit from 1,500 to 1,600 cc for the 1960 racing season.`, 
 `Relâmpago Marquinhos`, 
 `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`, 
 `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`, 
 `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`]
 const $descText = document.getElementById("description-text")
 
-const $slideBtns = document.querySelectorAll(".slides > input")
 
 
 window.addEventListener("DOMContentLoaded", () => {
-    let contador = 1;
-    
-    const qualquernome = setInterval( function(){
-        document.getElementById('slide' + contador).checked = true;
-        $descText.innerText = text[contador - 1]
-        $descTitle.innerText = descTitleText[contador - 1]
-        contador++;
-        if(contador > 5 ) {
-            contador = 1;
+    const $slideBtns = document.querySelectorAll(".slides > input")
+    let contador = 0;
+
+    function reiniciarSetInterval(callback, tempo){
+
+        let intervalID;
+      
+        function iniciarSetInterval() {
+          intervalID = setInterval(callback, tempo);
         }
-    }, 8000 );
-    
-    $slideBtns.forEach((botoes) =>{
+      
+        function pararSetInterval() {
+          clearInterval(intervalID);
+        }
+      
+        // Iniciar o setInterval
+        iniciarSetInterval();
+      
+        // Retornar as funções para uso posterior
+        return {
+          iniciar: iniciarSetInterval,
+          parar: pararSetInterval
+        };
+      }
+      
+      // Exemplo de uso:
+      const intervalo = reiniciarSetInterval( function(){
+          if(contador > 4 ) {
+              contador = 0;
+          }
+        document.getElementById('slide' + (contador + 1)).checked = true;
+        $descText.innerText = text[contador]
+        $descTitle.innerText = descTitleText[contador]
+        contador++;
+        console.log(contador)
+    }, 7000 );
+
+    // intervalo.iniciar()
+
+    $slideBtns.forEach((botoes, i) =>{
         botoes.addEventListener("click", () =>{
-            document.getElementById('slide' + contador).checked = true;
-            $descText.innerText = text[contador - 1]
-            $descTitle.innerText = descTitleText[contador - 1]
-            if (descTitleText.innerText === text[contador - 1]){
+            contador = i;
+            document.getElementById('slide' + (contador + 1)).checked = true;
+            $descText.innerText = text[contador]
+            $descTitle.innerText = descTitleText[contador]
+            if (descTitleText.innerText === text[contador]){
                 console.log ("asgafdsa")
             }
-            // contador++;
             if(contador > 5 ) {
                 contador = 1;
             }
-            clearInterval (qualquernome)
+            intervalo.parar()
+            intervalo.iniciar()
         })
     }) 
 
