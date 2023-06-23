@@ -1,4 +1,49 @@
+
+
+
+const $descTitle = document.getElementById("description-title")
+const descTitleText = [`Porsche 718 RS60 Spyder`, `Lightning McQueen`, `Lorem Ipsum1`, `Lorem Ipsum2`, `Lorem Ipsum3`]
+
+const text = [`Porsche developed the 718 RS 60 Spyder for the 1960 season. This car featured a decisive modification: whereas its predecessor - 
+the 718 RSK - had featured a cubic capacity of 1,498 cc, the Carrera en.`, 
+`Relâmpago Marquinhos`, 
+`Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`, 
+`Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`, 
+`Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`]
+const $descText = document.getElementById("description-text")
+
+const $slideBtns = document.querySelectorAll(".slides > input")
+
+
 window.addEventListener("DOMContentLoaded", () => {
+    let contador = 1;
+    
+    const qualquernome = setInterval( function(){
+        document.getElementById('slide' + contador).checked = true;
+        $descText.innerText = text[contador - 1]
+        $descTitle.innerText = descTitleText[contador - 1]
+        contador++;
+        if(contador > 5 ) {
+            contador = 1;
+        }
+    }, 8000 );
+    
+    $slideBtns.forEach((botoes) =>{
+        botoes.addEventListener("click", () =>{
+            document.getElementById('slide' + contador).checked = true;
+            $descText.innerText = text[contador - 1]
+            $descTitle.innerText = descTitleText[contador - 1]
+            if (descTitleText.innerText === text[contador - 1]){
+                console.log ("asgafdsa")
+            }
+            // contador++;
+            if(contador > 5 ) {
+                contador = 1;
+            }
+            clearInterval (qualquernome)
+        })
+    }) 
+
     const $dropdown = document.querySelector(".dropdownbtn"),
     $sidebar = document.querySelector("aside");
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,46 +9,83 @@
   <script src="index.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="./assets/favicon.png" sizes="200x200" type="image/png">
   <script src="https://kit.fontawesome.com/ddf62469f1.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com/" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <script src="index.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
   <title>Speed</title>
 </head>
 
 <body>
-  <aside id="sidebar">
-    <!-- <div class="dropdown"> -->
-      <div class="dropdowncontent">
-        <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-house" style="color: #000000;"></i><span>Home</span></a>
-        <a href="#"><i class="fa-solid fa-2xl fa-phone" style="color: #000000;"></i><span>Contact</span></a>
-        <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-globe" style="color: #000000;"></i></i><span>Our company</span></a>
-        <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-cart-shopping" style="color: #000000;"></i><span>Market</span></a>
-        <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-hashtag" style="color: #000000;"></i><span>Project</span></a>
-      </div>
-    <!-- </div> -->
-  </aside>
   <header>
     <button class="dropdownbtn" type="button"></button>
     <img src="./assets/favicon.png" alt="logo">
     <p>peed</p>
   </header>
-  <main>
-    <div class="produto">
-      <img src="assets/aston-martin-v12-vantage-roadster.webp" alt="Carro">
-      <p>Aston Martin V12 Vantage Roadster</p>
-      <a target="_blank" href="https://www.astonmartin.com/en/models/new-vantage?body=V12+Roadster" class="produto-btn">225,99R$ - Alugue agora</a>
+  <aside id="sidebar">
+    <div class="dropdowncontent">
+      <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-house" style="color: #000000;"></i><span>Home</span></a>
+      <a href="#"><i class="fa-solid fa-2xl fa-phone" style="color: #000000;"></i><span>Contact</span></a>
+      <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-globe" style="color: #000000;"></i></i><span>Our
+          company</span></a>
+      <a href="#"><i class="fa-sharp fa-2xl fa-solid fa-cart-shopping"
+          style="color: #000000;"></i><span>Market</span></a>
+      <a href="pages/project.html"><i class="fa-sharp fa-2xl fa-solid fa-hashtag"
+          style="color: #000000;"></i><span>Project</span></a>
     </div>
-    <div class="produto">
-      <img src="assets/bmw-xm-.webp" alt="">
-      <p>BMW XM V8</p>
-      <a target="_blank" href="https://www.bmw.com.br/pt/topics/fascination-bmw/bmw-concept-vehicle/bmw-concept-xm.html" class="produto-btn" type="button">350,00R$ - Alugue agora</a>
+  </aside>
+  <div class="content">
+    <div class="slides">
+      <input class="input" type="radio" name="slide" id="slide1" checked>
+      <input class="input" type="radio" name="slide" id="slide2">
+      <input class="input" type="radio" name="slide" id="slide3">
+      <input class="input" type="radio" name="slide" id="slide4">
+      <input class="input" type="radio" name="slide" id="slide5">
+
+      <div class="slide s1">
+        <img class="imgcarousel" src="./assets/carro1.png" alt="">
+      </div>
+
+      <div class="slide">
+        <img class="imgcarousel" src="./assets/carro2.png" alt="">
+      </div>
+
+      <div class="slide">
+        <img class="imgcarousel" src="./assets/carro3.webp" alt="">
+      </div>
+
+      <div class="slide">
+        <img class="imgcarousel" src="./assets/carro4.jpg" alt="">
+      </div>
+
+      <div class="slide">
+        <img class="imgcarousel" src="./assets/carro5.webp" alt="">
+      </div>
+      <div class="navigation">
+    
+        <label class="bar" for="slide1"></label>
+        <label class="bar" for="slide2"></label>
+        <label class="bar" for="slide3"></label>
+        <label class="bar" for="slide4"></label>
+        <label class="bar" for="slide5"></label>
+    
+      </div>
     </div>
-  </main>
-  
+  </div>
+
+  <div id="description-container">
+    <h1 id="description-title">Porsche 718 RS60 Spyder</h1>
+    <p id="description-text">Porsche developed the 718 RS 60 Spyder for the 1960 season. This car featured a decisive modification: whereas its pre
+      decessor – the 718 RSK – had featured a cubic capacity of 1,498 cc, the Carrera engine in the new model boasted an increased capacity of 1,587 cc. This was implemented in response to a technical rule change by the FIA, 
+      which had raised the cubic capacity limit from 1,500 to 1,600 cc for the 1960 racing season.</p>
+    <div id="description-btn">Alugue agora - 5000,00 R$ diário</div>
+  </div>
+
+
+
 
 </body>
 
