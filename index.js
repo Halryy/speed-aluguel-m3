@@ -12,9 +12,50 @@ const text =
 `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`]
 const $descText = document.getElementById("description-text")
 
+const $caralho = {
+    halry: ["../assets/shinobu.jpg", "halry", "service_srb4y29", "template_kw7wu3e", "oRzc7aDkHGDtQ_Qb3"],
+    bruno: ["../assets/dungamolusgo.jpg", "bruno", "service_qydzblp", "template_qt4kg39", "nHH2XELvPjQr7O3oX"],
+    carlos: ["../assets/zenitsu.jpg", "carlos", "service_srb4y29", "template_bxjtcqs", "oRzc7aDkHGDtQ_Qb3"],
+}
+
+let name = ""
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
+    const $form = document.querySelector("form")
+    $form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log($caralho[name][4]);
+        emailjs.init($caralho[name][4]);
+        emailjs.sendForm($caralho[name][2], $caralho[name][3], this).then(
+            function () {
+              console.log("SUCCESS!");
+              alert("Sucesso!");
+            },
+            function (error) {
+              console.log("FAILED...", error);
+              alert("Falha/erro");
+            }
+          );
+    })
+
+    const $divText = document.querySelector("dialog > div > p")
+    const $img = document.querySelector("dialog > div > img")
+
+    const $contactbtn = document.querySelectorAll("#contact-selection > div > button")
+    const $dialog = document.querySelector("dialog")
+
+    $contactbtn.forEach((botao) => {
+        botao.addEventListener("click", (event) =>{
+            name = event.target.parentElement.id
+            $divText.innerText = $caralho[name][1]
+            $img.src = $caralho[name][0]
+            $dialog.showModal()
+            console.log(event.target.parentElement)
+        })
+    })
+
     const $slideBtns = document.querySelectorAll(".slides > input")
     let contador = 0;
 
@@ -52,7 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log(contador)
     }, 7000 );
 
-    // intervalo.iniciar() //
+    // intervalo.iniciar()
 
     $slideBtns.forEach((botoes, i) =>{
         botoes.addEventListener("click", () =>{
@@ -60,9 +101,6 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('slide' + (contador + 1)).checked = true;
             $descText.innerText = text[contador]
             $descTitle.innerText = descTitleText[contador]
-            if (descTitleText.innerText === text[contador]){
-                console.log ("asgafdsa")
-            }
             if(contador > 5 ) {
                 contador = 1;
             }

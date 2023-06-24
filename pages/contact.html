@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+      name="color-scheme"
+      content="dark light"
+    />
   <link rel="stylesheet" href="../style.css">
   <script src="../index.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,10 +15,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"rel="stylesheet">
   <link rel="icon" href="../assets/favicon.png" sizes="200x200" type="image/png">
   <script src="https://kit.fontawesome.com/ddf62469f1.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('oRzc7aDkHGDtQ_Qb3');
+        })();
+    </script> -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"rel="stylesheet"/>
   <title>Contact</title>
 </head>
-<!--  -->
+
 <body>
     <header>
       <button class="dropdownbtn" type="button"></button>
@@ -33,9 +44,31 @@
   <div id="contact-selection">
     <div id="halry">Halry
         <img src="../assets/shinobu.jpg" height="50%" width="100%" alt="">
+        <button id="btn-halry" type="button">Contact</button>
     </div>
-    <div id="bruno">Bruno</div>
-    <div id="carlos">Carlos</div>
+    <div id="bruno">Bruno
+        <img src="../assets/dungamolusgo.jpg" height="50%" width="100%" alt="">
+        <button id="btn-bruno" type="button">Contact</button>
+    </div>
+    <div id="carlos">Carlos
+        <img src="../assets/zenitsu.jpg" height="50%" width="100%" alt="">
+        <button id="btn-carlos" type="button">Contact</button>
+    </div>
   </div>
+  <dialog id="mail-tab">
+    <form>
+        <label for="">Name: <input required placeholder="Name" type="text" name="name" class="inputs"></label>
+        <label for="">E-mail: <input required type="email" placeholder="E-mail:" name="email" class="inputs"></label>
+        <label for="">Message: <textarea required name="message" placeholder="Your message" class="inputs" id="message"></textarea></label>
+        <br>
+        <br>
+        <br>
+        <input type="submit" class="inputs" id="send" value="Send">
+    </form>
+    <div>
+        <p>Halry</p>
+        <img src="../assets/shinobu.jpg" alt="">
+    </div>
+  </dialog>
 </body>
 </html>
