@@ -43,6 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
         };
       }
       
+      
       const intervalo = reiniciarSetInterval( function(){
           if(contador > 4 ) {
               contador = 0;

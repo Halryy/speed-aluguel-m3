@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
           );
     })
+    
 
     const $divText = document.querySelector("dialog > div > p")
     const $img = document.querySelector("dialog > div > img")
