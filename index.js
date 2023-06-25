@@ -4,6 +4,9 @@
 const descTitleText = [`Porsche 718 RS60 Spyder`, `Lightning McQueen`, `Lorem Ipsum1`, `Lorem Ipsum2`, `Lorem Ipsum3`]
 const $descTitle = document.getElementById("description-title")
 
+const $descPrices  = [`Rent now - 500,00 $`, `Rent now - 325,00 $`, `Rent now - 210,00 $`, `Rent now - 150,00 $`, `Rent now - 200,00 $`]
+const $descBtn = document.getElementById("description-btn")
+
 const text = 
 [`Porsche developed the 718 RS 60 Spyder for the 1960 season. This car featured a decisive modification: whereas its predecessor – the 718 RSK – had featured a cubic capacity of 1,498 cc, the Carrera engine in the new model boasted an increased capacity of 1,587 cc. This was implemented in response to a technical rule change by the FIA, which had raised the cubic capacity limit from 1,500 to 1,600 cc for the 1960 racing season.`, 
 `Relâmpago Marquinhos`, 
@@ -47,6 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById('slide' + (contador + 1)).checked = true;
         $descText.innerText = text[contador]
         $descTitle.innerText = descTitleText[contador]
+        $descBtn.innerText = $descPrices[contador]
         contador++;
         console.log(contador)
     }, 7000 );
@@ -57,6 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('slide' + (contador + 1)).checked = true;
             $descText.innerText = text[contador]
             $descTitle.innerText = descTitleText[contador]
+            $descBtn.innerText = $descPrices[contador]
             if(contador > 5 ) {
                 contador = 1;
             }

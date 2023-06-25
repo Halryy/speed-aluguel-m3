@@ -1,7 +1,7 @@
 const $caralho = {
-    halry: ["../assets/shinobu.jpg", "halry", "service_srb4y29", "template_kw7wu3e", "oRzc7aDkHGDtQ_Qb3"],
-    bruno: ["../assets/dungamolusgo.jpg", "bruno", "service_qydzblp", "template_5452y2a", "nHH2XELvPjQr7O3oX"],
-    carlos: ["../assets/zenitsu.jpg", "carlos", "service_srb4y29", "template_bxjtcqs", "oRzc7aDkHGDtQ_Qb3"],
+    halry: ["../assets/shinobu.jpg", "Halry", "service_srb4y29", "template_kw7wu3e", "oRzc7aDkHGDtQ_Qb3"],
+    bruno: ["../assets/dungamolusgo.jpg", "Bruno", "service_qydzblp", "template_5452y2a", "nHH2XELvPjQr7O3oX"],
+    carlos: ["../assets/zenitsu.jpg", "Carlos", "service_srb4y29", "template_bxjtcqs", "oRzc7aDkHGDtQ_Qb3"],
 }
 
 let name = "";
