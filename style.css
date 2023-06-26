@@ -184,7 +184,7 @@ input {
 }
 
 .slide {
-  width: 20%;
+  width: auto;
   transition: .6s;
 }
 
@@ -677,4 +677,48 @@ main {
   height: 100%;
   border-radius: 100vw;
   inset: 0;
+}
+
+@media (max-width: 480px) {
+  #sidebar {
+    width: 0%;
+  }
+  .dropdowncontent {
+    display: none;
+  }
+
+  header > p {
+    font-size: 500%;
+    margin-left: 32%;
+  }
+
+  header > img {
+    right: 5%;
+  }
+
+  .slides {
+    width: 300%;
+    
+  }
+
+  #slide1:checked~.s1 {
+    margin-left: 0;
+  }
+  
+  #slide2:checked~.s1 {
+    margin-left: -60%;
+  }
+  
+  #slide3:checked~.s1 {
+    margin-left: -142%;
+  }
+  
+  #slide4:checked~.s1 {
+    margin-left: -243%;
+  }
+  
+  #slide5:checked~.s1 {
+    margin-left: -285%;
+  }
+
 }
