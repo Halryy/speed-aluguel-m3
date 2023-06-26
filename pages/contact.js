@@ -4,15 +4,14 @@ const $caralho = {
     carlos: ["../assets/zenitsu.jpg", "Carlos", "service_srb4y29", "template_bxjtcqs", "oRzc7aDkHGDtQ_Qb3"],
 }
 
-let name = "";
+let personName = "";
 
 window.addEventListener("DOMContentLoaded", () => {
     const $form = document.querySelector("form")
     $form.addEventListener("submit", function (event) {
         event.preventDefault();
-        console.log($caralho[name][4]);
-        emailjs.init($caralho[name][4]);
-        emailjs.sendForm($caralho[name][2], $caralho[name][3], this).then(
+        emailjs.init($caralho[personName][4]);
+        emailjs.sendForm($caralho[personName][2], $caralho[personName][3], this).then(
             function () {
               console.log("SUCCESS!");
               alert("Sucesso!");
@@ -22,6 +21,38 @@ window.addEventListener("DOMContentLoaded", () => {
               alert("Falha/erro");
             }
           );
+    })
+
+    const $sidebar = document.querySelector("aside");
+    const $dropdown = document.querySelector(".dropdowncontent")
+    const $dropdownBtn = document.querySelector(".dropdownbtn")
+    const $sidebtns = document.querySelectorAll(".dropdowncontent > a");
+    const windowWidth = window.screen.width;
+
+    let click = false;
+
+    $dropdownBtn.addEventListener("click", () => {
+        if (!click) {
+            click = true
+            if (windowWidth <= 480) {
+                $sidebar.style.width = '55%';
+            }
+            else {
+                $sidebar.classList.add('open');
+            }
+            $dropdown.classList.add('openDropDown');
+            $sidebtns.forEach((bts) => {
+                bts.classList.add('openSideBarIcons');
+            })
+        }
+        else {
+            click = false
+            $sidebar.classList.remove('open');
+            $dropdown.classList.remove('openDropDown');
+            $sidebtns.forEach((bts) => {
+                bts.classList.remove('openSideBarIcons');
+            })
+        }
     })
     
 
@@ -33,88 +64,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     $contactbtn.forEach((botao) => {
         botao.addEventListener("click", (event) =>{
-            name = event.target.parentElement.id
-            $divText.innerText = $caralho[name][1]
-            $img.src = $caralho[name][0]
+            personName = event.target.parentElement.id
+            $divText.innerText = $caralho[personName][1]
+            $img.src = $caralho[personName][0]
             $dialog.showModal()
-            console.log(event.target.parentElement)
         })
-    })
-
-    const $dropdown = document.querySelector(".dropdownbtn"),
-    $sidebar = document.querySelector("aside");
-
-    const $sidebtns = document.querySelectorAll(".dropdowncontent > a");
-    
-    const anim = [{ width: "15%" }, { width: "5%" }];
-    const animMS = 100;
-    let clicked = false;
-    let animIsRunning = false;
-
-
-        $dropdown.addEventListener("click", () => {
-            $sidebtns.forEach((bts) => {
-                if (!clicked){
-                    bts.style.marginLeft = "50%"
-                }
-                else {
-                    bts.style.marginLeft = "-200%"
-                }
-            })
-        
-        if (!clicked) {
-            clicked = true;
-            animIsRunning = true;
-            $sidebar.animate(anim, { duration: animMS, direction: "reverse" }).onfinish = () => {
-                animIsRunning = false;
-            }
-            $sidebar.style.width = "15%";
-            
-        }
-        else {
-            clicked = false;
-            $sidebar.animate(anim, animMS).onfinish = () => {
-                animIsRunning = false;
-            }
-            $sidebar.style.width = "5%";
-        }
-        })
-
-    $sidebar.addEventListener("mouseleave", () => {
-        if (animIsRunning === true) return;
-        clicked = false;
-        animIsRunning = true;
-        $sidebtns.forEach(bts => {
-            bts.style.marginLeft = "-200%"
-        })
-        $sidebar.animate(anim, { duration: animMS }).onfinish = () => {
-            $sidebar.style.width = "5%";
-            animIsRunning = false;
-        }
-    })
-
-    $sidebar.addEventListener("mouseenter", () => {
-        if (animIsRunning === true) return;
-            if (!clicked) {
-                clicked = true
-                animIsRunning = true;
-                $sidebtns.forEach(bts => {
-                    bts.style.marginLeft = "50%"
-                })
-                $sidebar.animate(anim, { duration: animMS, direction: "reverse" }).onfinish = () => {
-                    $sidebar.style.width = "15%";
-                    animIsRunning = false;
-                }
-            }
-    })
-
-    $sidebtns.forEach(($sidebtn) => {
-        $sidebtn.addEventListener("mouseenter", (event) => {
-                $sidebtn.children[0].classList.add("fa-fade")
-        })
-        
-        $sidebtn.addEventListener("mouseleave", (event) => {
-            $sidebtn.children[0].classList.remove("fa-fade")
-    })
     })
 })

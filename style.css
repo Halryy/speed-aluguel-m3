@@ -55,6 +55,82 @@ header>p::selection {
   z-index: 10;
   width: 5%;
   box-shadow: 8px 8px 8px black;
+  transition: all 200ms ease-in-out;
+}
+
+@media (hover :hover) {
+  #sidebar:hover {
+    width: 15%;
+  }
+
+  aside:hover>.dropdowncontent>a {
+    margin-left: 50%;
+  }
+
+  #description-btn:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  #description-btn:hover::before {
+    display: block;
+    background-color: rgb(255, 166, 0);
+    width: 100%;
+    height: 100%;
+    border-radius: 100vw;
+    inset: 0;
+  }
+
+  #btn-halry:hover,
+  #btn-carlos:hover,
+  #btn-bruno:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  #btn-halry:hover::before,
+  #btn-carlos:hover::before,
+  #btn-bruno:hover::before {
+    display: block;
+    background-color: rgb(255, 166, 0);
+    width: 100%;
+    height: 100%;
+    border-radius: 100vw;
+    inset: 0;
+  }
+
+  .produto-btn:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .produto-btn:hover::before {
+    display: block;
+    background-color: rgb(255, 166, 0);
+    width: 100%;
+    height: 100%;
+    border-radius: 100vw;
+    inset: 0;
+  }
+
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+}
+
+.open {
+  width: 15% !important;
+}
+
+.openSideBarIcons {
+  margin-left: 50% !important;
+}
+
+.openDropDown {
+  display: flex !important;
 }
 
 .dropdowncontent {
@@ -88,10 +164,6 @@ header>p::selection {
 
 .dropdowncontent>a>span {
   font-size: 20px;
-}
-
-aside:hover>.dropdowncontent>a {
-  margin-left: 50%;
 }
 
 .dropdowncontent>a>i {
@@ -136,78 +208,6 @@ button>img {
 
 }
 
-.content {
-  height: 67%;
-  overflow: hidden;
-  top: 0;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.content .slide img {
-  height: 100%;
-  width: 100%;
-}
-
-.navigation {
-  bottom: 8%;
-  left: 15%;
-  display: flex;
-  z-index: 2;
-  position: absolute;
-}
-
-.bar {
-
-  width: 15px;
-  height: 15px;
-  border: 2px solid white;
-  margin: 6px;
-  border-radius: 15px;
-  cursor: pointer;
-  transform: .5s ease;
-
-}
-
-.bar:hover {
-  background-color: white;
-}
-
-input {
-  display: none;
-}
-
-.slides {
-  display: flex;
-  width: 500%;
-  height: 100%;
-  position: relative;
-}
-
-.slide {
-  width: auto;
-  transition: .6s;
-}
-
-#slide1:checked~.s1 {
-  margin-left: 0;
-}
-
-#slide2:checked~.s1 {
-  margin-left: -20%;
-}
-
-#slide3:checked~.s1 {
-  margin-left: -40%;
-}
-
-#slide4:checked~.s1 {
-  margin-left: -60%;
-}
-
-#slide5:checked~.s1 {
-  margin-left: -80%;
-}
-
 #description-text {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -234,6 +234,7 @@ input {
   margin-left: 13%;
   position: relative;
   text-align: center;
+  top: 11.2%;
   height: 30%;
   border-radius: 0px 0px 12px 12px;
   box-shadow: 8px 8px 8px black;
@@ -275,19 +276,6 @@ input {
   inset: 0;
   border-radius: 100vw;
   z-index: -1;
-}
-
-#description-btn:hover {
-  color: rgb(255, 255, 255);
-}
-
-#description-btn:hover::before {
-  display: block;
-  background-color: rgb(255, 166, 0);
-  width: 100%;
-  height: 100%;
-  border-radius: 100vw;
-  inset: 0;
 }
 
 #contact-selection {
@@ -393,23 +381,6 @@ input {
   inset: 0;
   border-radius: 100vw;
   z-index: -1;
-}
-
-#btn-halry:hover,
-#btn-carlos:hover,
-#btn-bruno:hover {
-  color: rgb(255, 255, 255);
-}
-
-#btn-halry:hover::before,
-#btn-carlos:hover::before,
-#btn-bruno:hover::before {
-  display: block;
-  background-color: rgb(255, 166, 0);
-  width: 100%;
-  height: 100%;
-  border-radius: 100vw;
-  inset: 0;
 }
 
 #mail-tab {
@@ -543,7 +514,7 @@ dialog>form>div>h1 {
   text-align: center;
 }
 
-#text-content > h1 {
+#text-content>h1 {
   color: red;
   font-size: 35px;
   font-weight: bolder;
@@ -552,7 +523,7 @@ dialog>form>div>h1 {
   font-family: 'Oswald', sans-serif;
 }
 
-#text-content > p {
+#text-content>p {
   font-size: 20px;
 }
 
@@ -581,7 +552,7 @@ dialog>form>div>h1 {
   height: 30%;
 }
 
-#company-content > p {
+#company-content>p {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   font-weight: 600;
@@ -625,7 +596,7 @@ main {
   font-size: 17px;
 }
 
-.produto > img {
+.produto>img {
   aspect-ratio: 1/1;
   height: 60%;
   width: 100%;
@@ -666,59 +637,213 @@ main {
   z-index: -1;
 }
 
-.produto-btn:hover {
-  color: rgb(255, 255, 255);
+* {
+  box-sizing: border-box
 }
 
-.produto-btn:hover::before {
-  display: block;
-  background-color: rgb(255, 166, 0);
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0
+}
+
+.mySlides {
+  display: none;
+  height: 50vh;
+  width: 100vw;
+}
+
+.mySlides img {
+  vertical-align: middle;
   width: 100%;
   height: 100%;
-  border-radius: 100vw;
-  inset: 0;
 }
 
-@media (max-width: 480px) {
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  box-shadow: 8px 8px 8px black;
+  top: 11%;
+}
+
+.prev {
+  left: 5%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@media (max-width: 768px) {
   #sidebar {
     width: 0%;
   }
+
   .dropdowncontent {
     display: none;
   }
 
-  header > p {
+  header>p {
     font-size: 500%;
     margin-left: 32%;
   }
 
-  header > img {
+  header>img {
     right: 5%;
   }
 
-  .slides {
-    width: 300%;
-    
+  .content {
+    height: 27%;
+    width: 100%;
+    margin-top: 27%;
   }
 
-  #slide1:checked~.s1 {
-    margin-left: 0;
-  }
-  
-  #slide2:checked~.s1 {
-    margin-left: -60%;
-  }
-  
-  #slide3:checked~.s1 {
-    margin-left: -142%;
-  }
-  
-  #slide4:checked~.s1 {
-    margin-left: -243%;
-  }
-  
-  #slide5:checked~.s1 {
-    margin-left: -285%;
+  .openSideBarIcons {
+    margin-left: 22% !important;
   }
 
+  #description-container {
+    width: 90%;
+    height: 35%;
+    margin-left: 5%;
+  }
+
+  #description-title {
+    font-size: 12px;
+    padding: 0.5rem;
+    width: 60%;
+  }
+  
+  #description-btn {
+    width: 30vw;
+  }
+
+  #description-text {
+    font-size: 11px;
+    width: 60%;
+  }
+
+  #contact-selection {
+    width: 95%;
+    height: 50%;
+  }
+
+  #mail-tab {
+    width: 100%;
+    height: 50%;
+    left: 4%;
+    position: absolute;
+  }
+
+  #send {
+    width: 60%;
+    margin-top: 20%;
+  }
+
+  form {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+  }
+
+  #company-content {
+    width: 90%;
+    height: 60%;
+    margin-top: 40%;
+  }
+
+  #company-content > p {
+    font-size: 12px;
+  }
+
+  main {
+    width: 100%;
+    height: 40%;
+    margin-top: 20%;
+    margin-right: 8%;
+    gap: 5%;
+
+  }
+
+  #market-body {
+    overflow: visible !important;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+
+  .produto {
+    width: 43vw;
+    height: 35vh;
+    font-size: 14px;
+  }
+
+  #aston {
+    font-size: 14px;
+  }
+
+  #project-content {
+    width: 80%;
+    height: 80%;
+    margin-top: 22%;
+  }
+
+  #text-content > p {
+    font-size: 14px;
+  }
+
+  #text-content > h1 {
+    font-size: 22px;
+  }
 }

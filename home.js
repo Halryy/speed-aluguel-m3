@@ -15,6 +15,31 @@ const text =
         `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`]
 const $descText = document.getElementById("description-text")
 
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) { slideIndex = 0 }
+    if (n < 0) { slideIndex = 4 }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    if (slideIndex > 4) { slideIndex = 0 }
+    $descText.innerText = text[slideIndex]
+    $descTitle.innerText = descTitleText[slideIndex]
+    $descBtn.innerText = $descPrices[slideIndex]
+    slides[slideIndex].style.display = "block";
+}
 window.addEventListener("DOMContentLoaded", () => {
 
     const $slideBtns = document.querySelectorAll(".slides > input")
