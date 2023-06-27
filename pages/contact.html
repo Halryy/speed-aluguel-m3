@@ -51,18 +51,18 @@
     </div>
   </div>
   <dialog id="mail-tab">
-    <form>
+    <form id="form" >
         <label for="">Name: <input required placeholder="Name" type="text" name="name" class="inputs"></label>
         <label for="">E-mail: <input required type="email" placeholder="E-mail:" name="email" class="inputs"></label>
         <label for="">Message: <textarea required name="message" placeholder="Your message" class="inputs" id="message"></textarea></label>
         <br>
         <br>
         <br>   
-    </form>
-    <div>
+      </form>
+      <div>
         <p>Halry</p>
         <img id="profile-img" src="../assets/shinobu.jpg" alt="">
-        <input type="submit" class="inputs" id="send" value="Send">
+        <input form="form" type="submit" class="inputs" id="send" value="Send">
     </div>
   </dialog>
   

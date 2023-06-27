@@ -726,7 +726,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #sidebar {
     width: 0%;
   }
@@ -789,7 +789,6 @@ body {
 
   #send {
     width: 60%;
-    margin-top: 20%;
   }
 
   form {
